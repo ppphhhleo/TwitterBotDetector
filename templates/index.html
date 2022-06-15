@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>推特bot检测</title>
+		<link rel="stylesheet" href="{{url_for('static', filename='css/index.css') }}" />
+	</head>
+	<body>
+		<div class="login">
+			<h2>推特社交机器人检测</h2>
+			<form action="http://localhost:5000" method="post">
+				<div class="login_box">
+					<input type="text" required name="name" /><label>@name</label>
+				</div>
+
+				<a>
+<!--					<input  type="submit" style="opacity:0" value="  " name="robot" />冲！-->
+<!--					submit 就是提交表单-->
+<!--					<input type="submit" style="opacity:0" value="   " name="human"  />-->
+					<input type="submit" style="opacity:1" value="冲！" />
+				</a>
+			</form>
+		</div>
+		<div class="login">
+				<h2>用户信息</h2>
+			<p>创建时间 {{created_at}}</p>
+			<p>介绍 {{description}}</p>
+			<p>点赞推文数量 {{favourites_count}}</p>
+			<p>粉丝数目 {{followers_count}}</p>
+			<p>朋友数量 {{friends_count}}</p>
+			<p>推特昵称 @{{screen_name}}</p>
+			<p>是否认证 {{verified}}</p>
+			<p>每日推文平均数量 {{average_tweets_per_day}}</p>
+			<p>每天增长粉丝数 {{followers_growth_rate}} </p>
+			<p>声誉 {{reputation}}</p>
+		</div>
+
+		<div class="login">
+
+				<h2>最新的四条推文
+				</h2>
+			<p>
+				{{tweet1}}
+			</p>
+			<p>
+				{{tweet2}}
+			</p>
+			<p>
+				{{tweet3}}
+			</p>
+			<p>
+				{{tweet4}}
+			</p>
+		</div>
+		<div class="login">
+			<h2>一眼定真，鉴定为： </h2>
+			<h2 > {{judge}} </h2>
+			<h2>Human Credibility：   </h2>
+			<h2> {{credibility}} </h2>
+			<img src="data:;base64,{{ img_stream }} " class="myimg" />
+			<style type="text/css">
+				.myimg{
+					height:300px;
+					margin-top:10px;
+					margin-bottom:20px;
+					box-shadow:0 0 30px #fff;
+				}
+			</style>
+		</div>
+	</body>
+</html>

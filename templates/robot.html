@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(43, 52, 82);
+        }
+        .text{
+            font-family: 'fangsong';
+            display: inline-block;
+            position: relative;
+            font-size: 40px;
+            height: 60px;
+            line-height: 60px;
+            color: rgb(245, 245, 245);
+
+        }
+        .text::after{
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 5px;
+            height: 50px;
+            width: 3px;
+            background-color: #fff;
+            animation: san 0.5s steps(1) infinite;
+        }
+        @keyframes san{
+            0%,100%{
+                background-color: #fff;
+            }
+            50%{
+                background-color: transparent;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<h1>
+    <span class="text" ></span>
+</h1>
+<script>
+    const text = document.querySelector('.text');
+    const txt  =["When I do count the clock that tells the time,\nAnd see the brave day sunk in hideous night;\nWhen I behold the violet past prime,\nAnd sable curls all silver'd o'er with white\nWhen lofty trees I see barren of leaves,"];
+    var index=0;
+    var xiaBiao= 0;
+    var huan = true;
+    setInterval(function(){
+        if(huan){
+            text.innerHTML = txt[0].slice(0,++index);
+        }
+    },200)
+
+</script>
+</body>
+</html>
